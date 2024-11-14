@@ -28,6 +28,12 @@ array_t *array_create(unsigned int length, size_t element_size);
  * Return a copy of a given array
  */
 array_t *array_copy(array_t *array);
+
+/**
+ * Allocate a new block of memory of the same length
+ */
+void array_clean(array_t *array);
+
 /**
  * Free a given array
  */

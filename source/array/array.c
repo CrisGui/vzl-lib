@@ -54,3 +54,12 @@ size_t array_get_index(array_t *array, void *element) {
   return ARRAY_ERROR_CODE;
 }
 
+void array_clean(array_t *array) {
+  assert(array != NULL);
+  assert(array->data != NULL);
+
+  free(array->data);
+  array->data = calloc(array->length, array->element_size);
+
+  array->capacity = 0;
+}
