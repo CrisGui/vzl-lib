@@ -21,6 +21,20 @@ void array_destroy(array_t *array) {
   free(array);
 }
 
+array_t *array_copy(array_t *array) {
+  assert(array != NULL);
+  assert(array->data != NULL);
+
+  array_t *arr = array_create(array->length, array->element_size);
+
+  arr->length = array->length;
+  arr->element_size = array->element_size;
+  arr->capacity = array->capacity;
+  memcpy(arr->data, array->data, array->length * array->element_size);
+
+  return arr;
+}
+
 void *array_get_element(array_t *array, size_t index) {
   assert(array != NULL);
   assert(array->data != NULL);

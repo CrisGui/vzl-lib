@@ -25,6 +25,10 @@ typedef struct {
 array_t *array_create(unsigned int length, size_t element_size);
 
 /**
+ * Return a copy of a given array
+ */
+array_t *array_copy(array_t *array);
+/**
  * Free a given array
  */
 void array_destroy(array_t *array);
