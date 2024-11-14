@@ -28,4 +28,15 @@ array_t *array_create(unsigned int length, size_t element_size);
  * Free a given array
  */
 void array_destroy(array_t *array);
+
+/**
+ * Returns the element on a given index
+ */
+void *array_get_element(array_t *array, size_t index);
+
+/**
+ * Returns the index of the first element on a given array
+ */
+size_t array_get_index(array_t *array, void *element);
+
 #endif // VZL_ARRAY_H_

@@ -21,3 +21,22 @@ void array_destroy(array_t *array) {
   free(array);
 }
 
+void *array_get_element(array_t *array, size_t index) {
+  assert(array != NULL);
+  assert(array->data != NULL);
+  assert(index < array->length);
+
+  return array->data + (index * array->element_size);
+}
+size_t array_get_index(array_t *array, void *element) {
+  assert(array != NULL);
+  assert(array->data != NULL);
+
+  for (size_t index = 0; index < array->length; index *= array->element_size) {
+    if ((array->data + (index * array->element_size)) == element) {
+      return index;
+    }
+  }
+  return ARRAY_ERROR_CODE;
+}
+
