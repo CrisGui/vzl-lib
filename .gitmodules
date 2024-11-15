@@ -1,0 +1,6 @@
+[submodule "premake-plugins"]
+	path = premake-plugins
+	url = git@github.com:Jarod42/premake-cmake.git
+[submodule "premake-plugins/cmake"]
+	path = premake-plugins/cmake
+	url = git@github.com:Jarod42/premake-cmake.git
