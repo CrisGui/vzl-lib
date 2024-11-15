@@ -25,7 +25,7 @@ targetname "list"
 targetdir "%{wks.location}/binary/%{cfg.buildcfg}"
 objdir "%{wks.location}/build/%{cfg.buildcfg}"
 location "%{wks.location}/source/array"
--- libdirs { "%{wks.location}/library/**" }
+libdirs { "%{wks.location}/library/production/**" }
 -- links { "%{wks.location}/external/**" }
 links {
   "%{wks.location}/source/array/**"
@@ -34,10 +34,10 @@ libdirs {
   "%{wks.location}/source/array/**"
 }
 includedirs {
-  "%{wks.location}/source/array/**"
+  "%{wks.location}/source/array/**.h"
 }
 files {
-  "%{wks.location}/source/array/array.c",
+  "%{wks.location}/source/array/**.c",
 }
 
 project "list"
@@ -46,7 +46,7 @@ targetname "list"
 targetdir "%{wks.location}/binary/%{cfg.buildcfg}"
 objdir "%{wks.location}/build/%{cfg.buildcfg}"
 location "%{wks.location}/source/list"
--- libdirs { "%{wks.location}/library/**" }
+libdirs { "%{wks.location}/library/production/**" }
 -- links { "%{wks.location}/external/**" }
 links {
   "%{wks.location}/source/list/**"
@@ -55,10 +55,10 @@ libdirs {
   "%{wks.location}/source/list/**"
 }
 includedirs {
-  "%{wks.location}/source/list/**"
+  "%{wks.location}/source/list/**.h"
 }
 files {
-  "%{wks.location}/source/list/list.c",
+  "%{wks.location}/source/list/**.c",
 }
 
 filter "configurations:Debug"
