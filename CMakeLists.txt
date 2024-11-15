@@ -69,6 +69,6 @@ set(CMAKE_C_FLAGS_MAC_DISTRO64 "")
 set(CMAKE_CXX_FLAGS_MAC_DISTRO64 "")
 
 project("vzl-lib")
-include(source/array/FullTests.cmake)
+include(test/Tests.cmake)
 include(source/array/array.cmake)
 include(source/list/list.cmake)

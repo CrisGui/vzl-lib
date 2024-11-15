@@ -7,12 +7,13 @@ platforms { "Win", "Unix", "BSD", "Mac" }
 
 language "C"
 
-project "FullTests"
+project "Tests"
 kind "ConsoleApp"
-targetname "FullTests"
+targetname "run_tests"
 targetdir "%{wks.location}/binary/%{cfg.buildcfg}"
 objdir "%{wks.location}/build/%{cfg.buildcfg}"
-location "%{wks.location}/source/array"
+location "%{wks.location}/test/"
+libdirs { "%{wks.location}/library/**" }
 links { "array", "list" }
 files {
   "%{wks.location}/test/**.c"
