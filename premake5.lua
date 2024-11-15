@@ -275,3 +275,4 @@ system "bsd"
 filter "platforms:Mac"
 system "macosx"
 architecture "universal"
+filter {}
