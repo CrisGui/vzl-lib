@@ -1,3 +1,4 @@
+require "premake-plugins.cmake.cmake"
 workspace "vzl-lib"
 filename "vzl-lib"
 location "./"

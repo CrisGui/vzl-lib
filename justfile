@@ -1,29 +1,23 @@
 debug_bin := "binary/Debug64/main"
 release_bin := "binary/Release64/main"
 distro_bin := "binary/Distro64/main"
+BLDDIR := "./build"
 
 alias c := clean
-alias r := run
 alias b := build
-alias m := make
 
-run: build
-  clear
-  @echo -e "=== Executing program ===\n\n"
-  ./{{debug_bin}}
-  @echo -e "\n\n=== Program executed ==="
+cmake:
+  premake5 cmake
+  mkdir build binary 2> /dev/null || true
 
-build: make
-  #fd -t f -e c -e h | entr -cs 'make config=debug64_unix all'
-  make config=debug64_unix all
-  make config=release64_unix all
-  make config=distro64_unix all
-
-make:
-  premake5 gmake2
+build CONFIG:
+  cmake -B {{BLDDIR}} -S . -DCMAKE_BUILD_TYPE={{CONFIG}}
+  cmake --build {{BLDDIR}}
 
 clean:
-  fd -t f -e make | xargs rm
-  rm ./Makefile
   rm -r ./build
   rm -r ./binary
+
+  find . -type f -name '*.*make' -delete
+  # rm ./Makefile
+  rm ./CMakeLists.txt
